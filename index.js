@@ -15,6 +15,11 @@ app.get('/', (req, res) => {
     res.render('index')
 })
 
+// patient dashboard
+app.get('/patient-dashboard', (req, res) => {
+    res.render('patientdashboard')
+})
+
 app.listen(port, () => {
     console.log(`Server started on port ${port}`)
 })
