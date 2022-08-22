@@ -6,7 +6,7 @@ body {
 }
 
 nav {
-    background-color: #288786;
+    background-color: #23B86E;
     display: flex;
     justify-content: end;
 }
@@ -15,7 +15,7 @@ nav ul{
     list-style-type: none;
     margin: 0;
     overflow: hidden;
-    background-color: #288786;
+    background-color: #23B86E;
     padding: 2vw;
 }
 

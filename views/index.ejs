@@ -92,17 +92,21 @@
     <%- include('partials/nav.ejs') %>
     <div class="division">
         <div class="formCenter">
-            <div class="form">
+            <form action="/register" method="post">
                 <h1 class="reg">Register</h1>
                 <h3 class="subReg">Be a part of the Community</h3>
                 <h2 class="label">Username:</h2>
-                <input type="" placeholder="Enter Username">
+                <input type="" placeholder="Enter Username" id="nameReg" name="nameReg">
                 <h2 class="label">Email Id:</h2>
-                <input type="email" placeholder="Enter Email">
+                <input type="email" placeholder="Enter Email" name="emailReg">
                 <h2 class="label">Password:</h2>
-                <input type="password" placeholder="Enter Password">
-                <button>SignUp</button>
-            </div>
+                <input type="password" placeholder="Enter Password" name="passReg">
+                <select name="roleReg" id="roleReg">
+                    <option value="d">Doctor</option>
+                    <option value="patient">Patient</option>
+                </select>
+                <button type="submit">SignUp</button>
+            </form>
         </div>
         <div class="info">
             <h1> Find And Connect with <span style="border-bottom: 3px solid #e27c8f;color: #f7f7ff;">Thousands</span> of Medical Experts </h1>
