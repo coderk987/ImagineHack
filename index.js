@@ -22,6 +22,9 @@ const {
   updateDoc,
 } = require("firebase/firestore");
 
+let displayName = 'Kunsh Tyagi'
+let email = 'kunshtyagi@gmail.com'
+let doctor = 'Dr. Nimansh Jain'
 let fireUser = {};
 onAuthStateChanged(auth, (user) => {
   if (user) {
@@ -106,8 +109,8 @@ app.get("/", (req, res) => {
 
 // patient dashboard
 app.get("/home", (req, res) => {
-  console.log(fireUser)
-  res.render("patientdashboard", { fireUser:fireUser });
+  console.log(fireUser.user.displayName)
+  res.render("patientdashboard", { fireUser });
 });
 
 // Sign Up Post Request
@@ -136,7 +139,6 @@ app.post("/register", (req, res) => {
   res.redirect("/");
 });
 
-let displayName = ''
 
 // Logging In Post Request
 app.post("/login", (req, res) => {
@@ -187,6 +189,10 @@ app.post("/declineAppoint", (req, res) => {
     status: "dec",
   });
 });
+
+app.get('/patient-details', (req, res)=>{
+  res.render('details')
+})
 
 //Sending Reports - Doctor
 app.post("/sendReport", (req, res) => {

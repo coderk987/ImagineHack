@@ -71,17 +71,6 @@ body {
     background-color: #122049;
 }
 
-.neumorphism {
-    width: 80%;
-    margin: 0 auto;
-    padding: 2em;
-    display: flex;
-    justify-content: space-between;
-    border-radius: 10px;
-    box-shadow:  3px 3px 10px #bebebe,
-             -3px -3px 10px #ffffff;
-}
-
 .back, .next {
     margin: 0.5em;
     cursor: pointer;
