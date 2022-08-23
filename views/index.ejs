@@ -1,123 +1,176 @@
 <%- include('partials/head.ejs') %>
 
 <style>
-    body {
-        background-color: #f7f7ff;
-    }
-    .division{
-        display:flex;
-        width: 100vw;
-    }
-    .form{
-        display:flex;
-        flex-direction: column;
-        align-items:flex-start;
-        padding: 1em;
-    }
-    .formCenter{
-        display:flex;
-        flex-direction: column;
-        align-items:center;
-        justify-content:center;
-        width: 50vw;
-        height: 100%;
-        padding: 1em;
-    }
-    .reg{
-        font-weight: 600;
-        font-size: 3em;
-        color:rgb(32, 32, 32);
-    }
-    .subReg{
-        font-weight: 300;
-        color: rgb(52, 52, 52);
-        margin-bottom: 2em;
-        font-size: 1.5em;
-    }
-    .label{
-        font-weight: 600;
-        color: rgb(32, 32, 32);
-        margin-bottom: 0.2em;
-        font-size: 2em;
-    }
-    input{
-        margin-bottom: 0.5em;
-        padding: 0.1em 0.5em;
-        border: 3px solid #EA526F;
-        border-radius: 10px;
-        font-size: 1.5em;
-    }
-    button{
-        margin-top: 0.5em;
-        align-self:center;
-        padding: 0.2em 1em;
-        color: whitesmoke;
-        background-color: #314CB6;
-        border: none;
-        border-radius: 10px;
-        font-size: 1.5em;
-    }
-    .info{
-        background-image: linear-gradient(to bottom, #314cb6, #006ec8, #0088c7, #009fbd, #35b2b1);
-        width: 50vw;
-        color: #f7f7ff;
-        display:flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    h1{
-        color: #f7f7ff;
-        font-size: 3.5em;
-        width: 70%;
-        text-align: left;
-    }
-    .list{
-        width: 70%;
-    }
-    .info>h1{
-        margin-top: 8vh;
-    }
-    ul{
-        list-style: circle;
-    }
-    .list>ul>li{
-        color: #f7f7ff;
-        font-size: 1.7em;
-        margin-bottom: 1em;
-        font-weight: 500;
-    }
-</style>
+    .division {
+            background: linear-gradient(to right, #0706009e, #070600),url('/img/meduveda.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            width: 80vw;
+            margin: 2em auto;
+        }
+        
+        .form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 2em;
+            width: 25vw;
+        }
+        
+        .formCenter {
+            backdrop-filter: blur(4px);
+            display: flex;
+            /* background: #f7f7ff; */
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            /* width: 40vw; */
+            height: 90vh;
+            padding: 1em;
+        }
+        
+        .reg {
+            font-weight: 600;
+            font-size: 3em;
+            color: #409BEE;
+        }
+        
+        .subReg {
+            font-weight: 200;
+            /* color: #262b3e !important; */
+            margin-bottom: 2em;
+            font-size: 1.5em;
+        }
+        
+        .label {
+            font-weight: 500;
+            margin-bottom: 0.2em;
+            font-size: 1.5em;
+        }
+        
+        input {
+            margin-bottom: 1.5em;
+            padding: 0.5em 1em;
+            border-radius: 10px;
+            font-size: 1em;
+            border: none;
+            width: 90%;
+            color: #262b3e;
+        }
+        
+        button {
+            margin-top: 0.5em;
+            align-self: center;
+            padding: 0.2em 1em;
+            color: whitesmoke;
+            background-color: transparent;
+            border: 3px solid #409bee;
+            border-radius: 10px;
+            color: #409bee;
+            font-size: 1.5em;
+        }
+        
+        .info {
+            /* width: 50vw; */
+            color: #f7f7ff;
+            display: flex;
+            backdrop-filter: blur(4px);
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        h1,
+        h2 {
+            /* color: #f7f7ff; */
+            font-size: 3.5em;
+            width: 70%;
+            text-align: left;
+        }
 
-<body>
-    <%- include('partials/nav.ejs') %>
-    <div class="division">
-        <div class="formCenter">
-            <form action="/register" method="post">
-                <h1 class="reg">Register</h1>
-                <h3 class="subReg">Be a part of the Community</h3>
-                <h2 class="label">Username:</h2>
-                <input type="" placeholder="Enter Username" id="nameReg" name="nameReg">
-                <h2 class="label">Email Id:</h2>
-                <input type="email" placeholder="Enter Email" name="emailReg">
-                <h2 class="label">Password:</h2>
-                <input type="password" placeholder="Enter Password" name="passReg">
-                <select name="roleReg" id="roleReg">
-                    <option value="d">Doctor</option>
-                    <option value="patient">Patient</option>
-                </select>
-                <button type="submit">SignUp</button>
-            </form>
-        </div>
-        <div class="info">
-            <h1> Find And Connect with <span style="border-bottom: 3px solid #e27c8f;color: #f7f7ff;">Thousands</span> of Medical Experts </h1>
-            <div class="list">
-                <ul>
-                    <li>Find Doctors based on your Reccomendations</li>
-                    <li>Analyze Reports to find your Diagnosis</li>
-                    <li>User Friendly Communication for Doctors and Patients</li>
-                </ul>
+        h2 {
+            font-size: 2.5em;
+        }
+
+        .list {
+            width: 70%;
+        }
+
+        .info>h1 {
+            margin-top: 8vh;
+        }
+
+        ul {
+            list-style: circle;
+        }
+
+        .list>ul>li {
+            font-size: 1.7em;
+            margin-bottom: 1em;
+            font-weight: 300;
+        }
+    </style>
+
+    <body>
+        <%- include('partials/nav.ejs') %>
+            <div class="division glassmorph">
+                <div class="info">
+                    <h1>Meduveda</h1>
+                    <h2 style="font-weight: 500;"> Find And Connect with <span
+                            style="border-bottom: 3px solid #409bee;color: #f7f7ff;">Thousands</span> of Medical Experts
+                    </h2>
+                    <div class="list">
+                        <ul>
+                            <li>Find Doctors based on your Reccomendations</li>
+                            <li>Analyze Reports to find your Diagnosis</li>
+                            <li>User Friendly Communication for Doctors and Patients</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="formCenter">
+                    <form action="/register" method="post" class="form">
+                        <h1 class="reg">Register</h1>
+                        <h3 class="subReg">Be a part of the Community</h3>
+                        <h2 class="label" id="labelusername">Username</h2>
+                        <input type="" placeholder="Enter Username" id="nameReg" name="nameReg" required>
+                        <h2 class="label">Email Id</h2>
+                        <input type="email" placeholder="Enter Email" name="emailReg" required>
+                        <h2 class="label">Password</h2>
+                        <input type="password" placeholder="Enter Password" name="passReg" required>
+                        <input type="hidden" value="register" id="formtype">
+                        <select name="roleReg" id="roleReg" style="color: #070600;" required>
+                            <option value="d" style="color: #070600;">Doctor</option>
+                            <option value="patient" style="color: #070600;" selected>Patient</option>
+                        </select>
+                        <button type="submit" id="submit">Register</button>
+                        <sup id="subtext">Already have an account? <a onclick="toggleform()" style="color: #409bee; cursor: pointer;">Login here</a></sup>
+                    </form>
+                </div>
             </div>
-        </div>
-    </div>
-    
-</body>
+    <script defer>
+        isReg = true;
+        function toggleform(){
+            var heading = document.getElementsByClassName('reg')[0]
+            var subHead = document.getElementsByClassName('subReg')[0]
+            var formtype = document.getElementById('formtype');
+            var submit = document.getElementById('submit');
+            var subtext = document.getElementById('subtext');
+            var usernameInput = document.getElementById('nameReg');
+            var usernameLabel = document.getElementById('labelusername')
+            if(isReg){
+                heading.innerText = 'Login';
+                subHead.innerText = 'Great to have you back!'
+                formtype.value = 'login'
+                submit.innerText = 'Log in'
+                subtext.innerHTML = 'Don\'t have an account? <a onclick="toggleform()" style="color: #409bee; cursor: pointer;">Register for one</a>';
+                usernameInput.style.display = 'none';
+                usernameLabel.style.display = 'none';
+                document.getElementById('roleReg').style.display = 'none';
+                isReg = false;
+            } else {
+                location.reload()
+                return false;
+            }
+        }
+    </script>
+    </body>

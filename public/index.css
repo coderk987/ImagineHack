@@ -1,22 +1,22 @@
 body {
-    background-color: #f7f7ff;
+    background-color: #262b3e;
     margin: 0;
     padding: 0;
     font-family: outfit;
 }
 
 nav {
-    background-color: #23B86E;
+    background-color: #409BEE;
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
+    height: 10vh;
 }
 
 nav ul{
     list-style-type: none;
     margin: 0;
     overflow: hidden;
-    background-color: #23B86E;
-    padding: 2vw;
+    padding: 1.5vw;
 }
 
 nav ul li {
@@ -26,69 +26,20 @@ nav ul li {
     margin: 0px 1vw;
 }
 
-nav li a {
+nav li a, nav h1 {
     text-decoration: none;
-    color: #f7f7ff;
+    color: #262b3e;
 }
 
 a {
-    color: #070600;
+    color: #262b3e;
     text-decoration: none;
 }
 
-.side {
-    background-color: #d9d9d9;
-    min-width: 300px;
-    height: 100vh;
-    position: sticky;
-    margin: 0px;
-}
-
-.side ul {
-    list-style-type: none;
-    margin: 0%;
-    padding-top: 10vw;
-}
-
-.side li {
-    padding: 10px;
-    font-size: 1.3rem;
-}
-
-.side li:hover {
-    border-left: solid 5px #314cb6;
-}
-
-h1 {
-    text-align: center;
-}
-
-#dashboard {
-    width: 65vw;
-    height: 100vh;
-    float: right;
-}
-
-.rounded {
+.glassmorph {
     border-radius: 10px;
-    color: #f7f7ff;
-    margin: 10px;
-}
-
-.reports {
-    background-image: linear-gradient(to bottom right, #ea627f, #314cb6);
-}
-
-.reports, .appointments{
-    font-size: 25px;
-    padding: 3vw 4vw;
-    cursor: pointer;
-    max-width: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.appointments {
-    background-image: linear-gradient(to bottom right, #ea627f, #228786);
+    background: rgba( 247, 247, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 #0706008e;
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
 }
