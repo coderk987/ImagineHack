@@ -1,0 +1,108 @@
+#dashboard {
+    width: 100vw;
+    height: 100vh;
+    float: right;
+    display: flex;
+    flex-direction: column;
+}
+
+.rounded {
+    border-radius: 10px;
+    color: #f7f7ff;
+    margin: 10px;
+}
+
+.reports {
+    background-color: #ea627f;
+}
+
+.reports, .appointments{
+    font-size: 25px;
+    padding: 3vw 2vw;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.appointments {
+    background-color: #314cb6;
+}
+
+.profile {
+    background-color: #314cb6;
+    width: 100%;
+    min-width: 400px;
+    min-height: 200px;
+    height: auto;
+    padding: 2vw;
+    text-align: center;
+}
+.profile p{
+    color: #f7f7ff;
+}
+.profilepic {
+    width: 130px;
+    height: 130px;
+    margin: 0 auto;
+    border-radius: 50%;
+    background-color: #ea627f;
+}
+
+.profilebuttons{
+    width: 60%;
+    margin: 3vw auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.profilebuttons button {
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1.2rem;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.logout{
+    background-color: #ea627f;
+}
+
+.calender{
+    width: 300px;
+    height: 300px;
+    border-width: 5px;
+    border-style: solid;
+    border-image: linear-gradient(to right bottom, #ea627f, #228786);
+    border-image-slice: 1;
+}
+
+.side {
+    background-color: #d9d9d9;
+    min-width: 300px;
+    height: 100vh;
+    position: sticky;
+    margin: 0px;
+}
+
+.side ul {
+    list-style-type: none;
+    margin: 0%;
+    padding-top: 10vw;
+}
+
+.side li {
+    padding: 10px;
+    font-size: 1.3rem;
+}
+
+.side li:hover {
+    transition-duration: 0.1s;
+    border-left: solid 5px #314cb6;
+}
+
+h1 {
+    text-align: center;
+}
