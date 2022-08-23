@@ -90,7 +90,6 @@
 .side ul {
     list-style-type: none;
     margin: 0%;
-    padding-top: 10vw;
 }
 
 .side li {
@@ -99,8 +98,7 @@
 }
 
 .side li:hover {
-    transition-duration: 0.1s;
-    border-left: solid 5px #314cb6;
+    background-color: #f5f5f5;
 }
 
 h1 {

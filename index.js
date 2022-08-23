@@ -8,6 +8,7 @@ const {
   createUserWithEmailAndPassword,
   updateProfile,
   signInWithEmailAndPassword,
+  signOut,
 } = require("firebase/auth");
 const {
   onSnapshot,
@@ -38,6 +39,15 @@ docList = [];
 appList = [];
 reqList = [];
 //Doctors List-Patients
+
+const loggedIn = (req, res, next)=>{
+  if(fireUser.uid){
+    next()
+  } else {
+    res.redirect('/')
+  }
+}
+
 if (fireUser.uid) {
   const docQ = query(collection(db, "users"), where("role", "==", "d"));
   const unsubDoc = onSnapshot(docQ, (querySnapshot) => {
@@ -84,7 +94,7 @@ app.get("/", (req, res) => {
 });
 
 // patient dashboard
-app.get("/home", (req, res) => {
+app.get("/home", loggedIn, (req, res) => {
   console.log(req.url);
   res.render("patientdashboard", { fireUser });
 });
@@ -112,27 +122,27 @@ app.post("/register", (req, res) => {
     .catch((err) => {
       console.log(err);
     });
-  console.log(role);
-  res.redirect("/home");
+  res.redirect("/");
 });
 
 // Logging In Post Request
 app.post("/login", (req, res) => {
-  let mail = req.body.emailLog;
-  let pass = req.body.passLog;
+  let mail = req.body.emailReg;
+  let pass = req.body.passReg;
   signInWithEmailAndPassword(auth, mail, pass)
     .then((user) => {
       fireUser = user;
+      console.log(fireUser)
+      console.log('logged in')
+      res.redirect("/home");
     })
     .catch((err) => {
       console.log(err);
     });
-  console.log(role);
-  res.redirect("/home");
 });
 
 app.get("/find", (req, res) => {
-  res.render("findDocs", { docList });
+  res.render("inputs", { docList });
 });
 
 // Requesting Appointments - Patient
@@ -234,5 +244,16 @@ app.post("/sendMessage", (req, res) => {
 app.get("/inputTest", (req, res) => {
   res.render("inputs", { docList });
 });
+
+app.get('/logout', (req, res)=>{
+  signOut(auth)
+  .then(()=>{
+    console.log("user signed out")
+    res.redirect('/')
+  })
+  .catch(()=>{
+    console.log('error in signing out user')
+  })
+})
 
 app.listen(port);
