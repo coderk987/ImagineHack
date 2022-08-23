@@ -51,13 +51,13 @@ appList = [];
 reqList = [];
 //Doctors List-Patients
 
-const loggedIn = (req, res, next)=>{
-  if(fireUser.uid){
-    next()
+const loggedIn = (req, res, next) => {
+  if (fireUser.uid) {
+    next();
   } else {
-    res.redirect('/')
+    res.redirect("/");
   }
-}
+};
 
 if (fireUser.uid) {
   const docQ = query(collection(db, "users"), where("role", "==", "d"));
@@ -145,8 +145,8 @@ app.post("/login", (req, res) => {
   signInWithEmailAndPassword(auth, mail, pass)
     .then((user) => {
       fireUser = user;
-      displayName = fireUser.displayName
-      console.log('logged in')
+      console.log(fireUser);
+      console.log("logged in");
       res.redirect("/home");
     })
     .catch((err) => {
@@ -258,15 +258,15 @@ app.get("/inputTest", (req, res) => {
   res.render("inputs", { docList });
 });
 
-app.get('/logout', (req, res)=>{
+app.get("/logout", (req, res) => {
   signOut(auth)
-  .then(()=>{
-    console.log("user signed out")
-    res.redirect('/')
-  })
-  .catch(()=>{
-    console.log('error in signing out user')
-  })
-})
+    .then(() => {
+      console.log("user signed out");
+      res.redirect("/");
+    })
+    .catch(() => {
+      console.log("error in signing out user");
+    });
+});
 
 app.listen(port);
