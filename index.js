@@ -9,6 +9,7 @@ const {
   updateProfile,
   signInWithEmailAndPassword,
   signOut,
+  onAuthStateChanged
 } = require("firebase/auth");
 const {
   onSnapshot,
@@ -21,7 +22,17 @@ const {
   updateDoc,
 } = require("firebase/firestore");
 
-fireUser = {};
+let fireUser = {};
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    fireUser=user;
+    const uid = user.uid;
+    console.log(fireUser.displayName)
+    // ...
+  } else {
+    console.log('logged out')
+  }
+});
 
 // main variables
 const app = express();
@@ -94,9 +105,9 @@ app.get("/", (req, res) => {
 });
 
 // patient dashboard
-app.get("/home", loggedIn, (req, res) => {
-  console.log(req.url);
-  res.render("patientdashboard", { fireUser });
+app.get("/home", (req, res) => {
+  console.log(fireUser)
+  res.render("patientdashboard", { fireUser:fireUser });
 });
 
 // Sign Up Post Request
@@ -113,10 +124,10 @@ app.post("/register", (req, res) => {
         photo:
           "https://library.kissclipart.com/20181001/wbw/kissclipart-gsmnet-ro-clipart-computer-icons-user-avatar-4898c5072537d6e2.png",
       });
-      updateProfile(auth.currentUser, {
+      updateProfile(fireUser, {
         displayName: `${name}#${role}`,
       }).then(() => {
-        fireUser = auth.currentUser;
+        fireUser = fireUser;
       });
     })
     .catch((err) => {
@@ -125,6 +136,8 @@ app.post("/register", (req, res) => {
   res.redirect("/");
 });
 
+let displayName = ''
+
 // Logging In Post Request
 app.post("/login", (req, res) => {
   let mail = req.body.emailReg;
@@ -132,7 +145,7 @@ app.post("/login", (req, res) => {
   signInWithEmailAndPassword(auth, mail, pass)
     .then((user) => {
       fireUser = user;
-      console.log(fireUser)
+      displayName = fireUser.displayName
       console.log('logged in')
       res.redirect("/home");
     })
@@ -154,7 +167,7 @@ app.post("/appoint", (req, res) => {
   console.log(req.body);
   addDoc(collection(db, "appoints"), {
     doctor: mail,
-    patient: auth.currentUser.email,
+    patient: fireUser.email,
     time: time,
     status: "req",
   });
@@ -184,7 +197,7 @@ app.post("/sendReport", (req, res) => {
   sugar = req.body.sugar;
   iron = req.body.iron;
   addDoc(collection(db, "report"), {
-    doctor: auth.currentUser.email,
+    doctor: fireUser.email,
     patient: pMail,
     vitB: vitB,
     vitD: vitD,
@@ -235,7 +248,7 @@ app.post("/diagnosis", (req, res) => {
 app.post("/sendMessage", (req, res) => {
   msg = req.body.chatMsg;
   addDoc(collection(db, "chat"), {
-    by: auth.currentUser.email,
+    by: fireUser.email,
     for: req.url.substring(1, req.url.length),
     msg: msg,
   });

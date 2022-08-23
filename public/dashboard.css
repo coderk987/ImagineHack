@@ -1,3 +1,7 @@
+body {
+    color: #122049;
+}
+
 #dashboard {
     width: 100vw;
     height: 100vh;
@@ -8,80 +12,39 @@
 
 .rounded {
     border-radius: 10px;
-    color: #f7f7ff;
     margin: 10px;
 }
 
-.reports {
-    background-color: #ea627f;
-}
-
 .reports, .appointments{
-    font-size: 25px;
-    padding: 3vw 2vw;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.appointments {
-    background-color: #314cb6;
-}
-
-.profile {
-    background-color: #314cb6;
-    width: 100%;
-    min-width: 400px;
-    min-height: 200px;
-    height: auto;
-    padding: 2vw;
-    text-align: center;
-}
-.profile p{
-    color: #f7f7ff;
-}
-.profilepic {
-    width: 130px;
-    height: 130px;
-    margin: 0 auto;
-    border-radius: 50%;
-    background-color: #ea627f;
-}
-
-.profilebuttons{
-    width: 60%;
-    margin: 3vw auto;
+    flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-}
-
-.profilebuttons button {
-    border: none;
-    border-radius: 10px;
-    padding: 10px;
-    font-size: 1.2rem;
-    margin: 5px;
+    padding: 1em;
+    font-size: 20px;
     cursor: pointer;
+    justify-content: center;
+    align-items: flex-end;
+    background: linear-gradient(150deg, #409bee 0%, #122049 300%);
+    color: #122049;
 }
 
-.logout{
-    background-color: #ea627f;
+.rounded p{
+    min-width: 220px;
+    width: 100%;
 }
 
-.calender{
-    width: 300px;
-    height: 300px;
-    border-width: 5px;
-    border-style: solid;
-    border-image: linear-gradient(to right bottom, #ea627f, #228786);
-    border-image-slice: 1;
+.rounded img {
+    margin-bottom: 2em;
+}
+
+
+.upcoming{
+    margin-top: 2em;
 }
 
 .side {
-    background-color: #d9d9d9;
     min-width: 300px;
+    border-right: 1px solid #00000026;
     height: 100vh;
     position: sticky;
     margin: 0px;
@@ -90,17 +53,36 @@
 .side ul {
     list-style-type: none;
     margin: 0%;
+    padding: 1em;
 }
 
 .side li {
     padding: 10px;
     font-size: 1.3rem;
+    border-radius: 10px;
 }
 
-.side li:hover {
-    background-color: #f5f5f5;
+.side li:hover{
+    opacity: 0.9;
 }
 
-h1 {
-    text-align: center;
+.secondary {
+    color: #f7f7ff;
+    background-color: #122049;
+}
+
+.neumorphism {
+    width: 80%;
+    margin: 0 auto;
+    padding: 2em;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+    box-shadow:  3px 3px 10px #bebebe,
+             -3px -3px 10px #ffffff;
+}
+
+.back, .next {
+    margin: 0.5em;
+    cursor: pointer;
 }
