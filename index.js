@@ -123,12 +123,12 @@ app.post("/login", (req, res) => {
   signInWithEmailAndPassword(auth, mail, pass)
     .then((user) => {
       fireUser = user;
+      console.log(fireUser.uid);
+      res.redirect("/home");
     })
     .catch((err) => {
       console.log(err);
     });
-  console.log(role);
-  res.redirect("/home");
 });
 
 app.get("/find", (req, res) => {
